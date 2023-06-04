@@ -91,7 +91,7 @@ open class STTextView: NSView, NSTextInput, NSTextContent {
         }
 
         set {
-            guard let newValue else {
+            guard let newValue = newValue else {
                 NSException(name: .invalidArgumentException, reason: "nil NSFont given").raise()
                 return
             }
@@ -121,7 +121,7 @@ open class STTextView: NSView, NSTextInput, NSTextContent {
 
     /// Sets the text color of characters within the specified range to the specified color.
     open func setTextColor(_ color: NSColor?, range: NSRange) {
-        if let color {
+        if let color = color {
             addAttributes([.foregroundColor: color], range: range)
         } else {
             removeAttribute(.foregroundColor, range: range)
@@ -533,7 +533,7 @@ open class STTextView: NSView, NSTextInput, NSTextContent {
                 updateContentScale(for: self.contentLayer, scale: self.backingScaleFactor)
                 updateContentScale(for: self.selectionLayer, scale: self.backingScaleFactor)
             }
-        } else if let didChangeBackingPropertiesNotificationObserver {
+        } else if let didChangeBackingPropertiesNotificationObserver = didChangeBackingPropertiesNotificationObserver {
             NotificationCenter.default.removeObserver(didChangeBackingPropertiesNotificationObserver)
             self.didChangeBackingPropertiesNotificationObserver = nil
         }

@@ -120,7 +120,7 @@ extension STTextView: NSTextInputClient {
         }
 
         let replacementTextRange = NSTextRange(replacementRange, in: textContentManager)
-        if let replacementTextRange, !textRanges.contains(where: { $0 == replacementTextRange }) {
+        if let replacementTextRange = replacementTextRange, !textRanges.contains(where: { $0 == replacementTextRange }) {
             textRanges.append(replacementTextRange)
         }
 

@@ -32,7 +32,7 @@ extension STTextView {
             return
         }
 
-        let oldAnnotations = {
+        let oldAnnotations = { () -> [STLineAnnotation] in
             var result: [STLineAnnotation] = []
             result.reserveCapacity(self.annotationViewMap.count)
 

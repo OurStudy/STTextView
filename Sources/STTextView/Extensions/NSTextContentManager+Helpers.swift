@@ -24,7 +24,7 @@ extension NSTextContentManager {
     /// - Parameter range: Text range, or nil for the whole document.
     /// - Returns: Attributed string, or nil.
     func attributedString(in range: NSTextRange?) -> NSAttributedString? {
-        if let range {
+        if let range = range {
             precondition(range.isEmpty == false)
         }
         
